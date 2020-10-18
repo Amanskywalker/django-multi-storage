@@ -58,3 +58,20 @@ def create_presigned_url_s3(bucket_name, object_name, expiration=3600):
 
     # The response contains the presigned URL
     return response
+
+
+## Listing all objects in the Bucket
+def list_files_in_bucket(bucket_name):
+    """
+    List all files in bucket
+    """
+    try:
+        response = client.list_objects_v2(
+            Bucket= bucket_name
+        )
+    except ClientError as e:
+        print(e)
+        return None
+
+    for key in response['Contents']:
+        print('-> {}'.format(key['Key']))
