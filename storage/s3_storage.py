@@ -75,3 +75,11 @@ def list_files_in_bucket(bucket_name):
 
     for key in response['Contents']:
         print('-> {}'.format(key['Key']))
+
+
+def download_from_s3(bucket_name, object_name, file_name):
+    try:
+        s3_client.download_file(bucket_name, object_name, file_name)
+    except ClientError as e:
+        print(e)
+        return None
