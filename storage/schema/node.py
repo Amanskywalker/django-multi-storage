@@ -49,3 +49,20 @@ class ImageNode(graphene.ObjectType):
             url of the 200 byte implimation of the image
         '''
         return "URL comming soon"
+
+# Video node
+class VideoNode(graphene.ObjectType):
+    '''
+        Defines the custom Video node, it extends the File Node
+
+        it accepts the file id to view the Video and its related details
+    '''
+    class Meta:
+        interfaces = (graphene.relay.Node, FileNode)
+    
+    stream_url = graphene.String()
+    def resolve_stream_url(self, info):
+        '''
+            Streaming Url
+        '''
+        return "URL comming soon"
