@@ -1,6 +1,6 @@
 # django-multi-storage
 
-A Django library for the abstraction of storage and retrival of the file using django.
+A Django Multi Storage management library for the storage and retrival of the file accross the multiple storage provider.
 
 It's a WIP.
 
