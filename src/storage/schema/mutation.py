@@ -16,9 +16,7 @@ from core.models import (
 )
 
 # get Nodes definitions
-from core.schema.node import (
-    FollowerFollowedMappingFilter, FollowerFollowedMappingNode
-)
+from core.schema.node import FollowerFollowedMappingFilter, FollowerFollowedMappingNode
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -40,6 +38,7 @@ logger = logging.getLogger(__name__)
 #             }
 #         )
 #         return CreateOrUpdateFollowerFollowedMapping(follower_followed_mapping=followerFollowedMapping)
+
 
 class Mutation(graphene.AbstractType):
     # create_or_update_follower = CreateOrUpdateFollowerFollowedMapping.Field()
