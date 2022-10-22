@@ -4,30 +4,28 @@ from google.cloud import storage
 import datetime
 
 # Instantiates a client
-storage_client = storage.Client.from_service_account_json('config/gcp_storage.json')
+storage_client = storage.Client.from_service_account_json("config/gcp_storage.json")
+
 
 def upload_blob(bucket_name, source_file, destination_blob_name):
     """Uploads a file to the bucket."""
     # bucket_name = "your-bucket-name"
     # source_file_name = "local/path/to/file"
     # destination_blob_name = "storage-object-name"
-    
+
     # bucket to upload
     bucket = storage_client.bucket(bucket_name)
     # final name of the blob
     blob = bucket.blob(destination_blob_name)
-    #upload the bolb
+    # upload the bolb
     # result = blob.upload_from_filename(source_file_name)
     result = blob.upload_from_file(
-        source_file,
-        content_type=str(source_file.content_type))
-    print(result)
-    print(
-        "File {} uploaded to {}".format(
-            source_file, destination_blob_name
-        )
+        source_file, content_type=str(source_file.content_type)
     )
+    print(result)
+    print("File {} uploaded to {}".format(source_file, destination_blob_name))
     return True
+
 
 def generate_download_signed_url_v4(bucket_name, blob_name):
     """
