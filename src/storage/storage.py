@@ -4,14 +4,14 @@ from django.core.files.storage import Storage
 
 
 class MultiStorage(Storage):
-    '''
+    """
     Base Storage class to abstract the storage function accross the multiple service providers
-    '''
+    """
 
     # hold the drive then main connection the provider
     driver = None
     # hold the provider data
-    provider = settings.STORAGE_PROVIDERS['default']
+    provider = settings.STORAGE_PROVIDERS["default"]
     # hold the bucket data
     bucket = None
 
